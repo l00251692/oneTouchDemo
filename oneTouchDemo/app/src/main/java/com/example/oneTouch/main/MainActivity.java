@@ -49,11 +49,15 @@ public class MainActivity extends AppCompatActivity{
         Button secondButton = findViewById(R.id.activate_second);
         secondButton.setOnClickListener( view -> {
             Log.i(TAG, "second button clicked");
+            Intent intent = new Intent(MainActivity.this, MarkdownActivity.class);
+            startActivity(intent);
         });
 
         Button thirdButton = findViewById(R.id.activate_third);
         thirdButton.setOnClickListener( view -> {
             Log.i(TAG, "third button clicked");
+            Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+            startActivity(intent);
         });
     }
 

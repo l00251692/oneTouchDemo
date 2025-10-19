@@ -5,7 +5,7 @@ android {
     compileSdkVersion 34
     defaultConfig {
         applicationId "com.example.oneTouch.app"
-        minSdkVersion 21
+        minSdkVersion 31
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -28,4 +28,7 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.mockito:mockito-core:2.15.0'
+    implementation 'com.atlassian.commonmark:commonmark:0.17.0'
+
+    implementation fileTree(dir:'libs', includes: ['*.aar'])
 }
