@@ -11,30 +11,48 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="32dp"
+        android:background="#f5f5f5">
 
         <Button
             android:id="@+id/activate_first"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="266dp"
-            android:layout_height="45dp"
-            android:text="打开图片" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_primary"
+            android:text="分享图片"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:padding="16dp"
+            android:elevation="4dp"/>
 
         <Button
             android:id="@+id/activate_second"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="266dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:text="打开网页" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_secondary"
+            android:text="分享文字"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:padding="16dp"
+            android:elevation="4dp"/>
 
         <Button
             android:id="@+id/activate_third"
             style="?android:attr/buttonStyleSmall"
-            android:layout_width="266dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:text="打开内容" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/button_accent"
+            android:text="分享内容"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"
+            android:padding="16dp"
+            android:elevation="4dp"/>
 
 
     </LinearLayout>

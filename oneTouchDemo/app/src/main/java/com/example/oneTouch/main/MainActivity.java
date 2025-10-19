@@ -24,8 +24,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.oneTouch.app.R;
 
@@ -37,7 +39,6 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         Button firstButton = findViewById(R.id.activate_first);
         firstButton.setOnClickListener( view -> {
@@ -59,6 +60,25 @@ public class MainActivity extends AppCompatActivity{
             Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
             startActivity(intent);
         });
+
+        preloadWebView();
+
+        /*Button testDeepLinkButton = findViewById(R.id.activate_third); // 假设有这个按钮
+        if (testDeepLinkButton != null) {
+            testDeepLinkButton.setOnClickListener(view -> {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("https://www.honor.com/cn/tech/connect/"));
+                intent.setPackage(getPackageName()); // 限制只在当前应用内打开
+                startActivity(intent);
+            });
+        }*/
+
+    }
+    private void preloadWebView() {
+        WebView webView = new WebView(this);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+        webView.loadUrl("https://www.honor.com/cn/tech/connect/");
     }
 
     @Override
