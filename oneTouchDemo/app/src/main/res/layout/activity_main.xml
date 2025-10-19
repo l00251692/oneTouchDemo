@@ -5,17 +5,38 @@
     android:layout_height="match_parent"
     tools:context="com.example.oneTouch.main.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/list"
+
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <ProgressBar
-        android:id="@+id/progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone" />
+        <Button
+            android:id="@+id/activate_first"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="266dp"
+            android:layout_height="45dp"
+            android:text="打开图片" />
+
+        <Button
+            android:id="@+id/activate_second"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="266dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:text="打开网页" />
+
+        <Button
+            android:id="@+id/activate_third"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="266dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="20dp"
+            android:text="打开内容" />
+
+
+    </LinearLayout>
 
 </FrameLayout>

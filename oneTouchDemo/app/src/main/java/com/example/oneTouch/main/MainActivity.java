@@ -18,83 +18,69 @@
 
 package com.example.oneTouch.main;
 
-import static com.example.oneTouch.app.R.id.*;
-
+import android.content.Intent;
 import android.os.Bundle;
+
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ProgressBar;
+import android.util.Log;
+
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.oneTouch.app.R;
 
-import java.util.List;
+public class MainActivity extends AppCompatActivity{
 
-public class MainActivity extends AppCompatActivity implements MainView {
-
-    private RecyclerView recyclerView;
-    private ProgressBar progressBar;
-    private MainPresenter presenter;
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recyclerView = findViewById(R.id.list);
-        progressBar = findViewById(R.id.progress);
-        presenter = new MainPresenter(this, new FindItemsInteractor());
+
+
+        Button firstButton = findViewById(R.id.activate_first);
+        firstButton.setOnClickListener( view -> {
+            Log.i(TAG, "first button clicked");
+            Intent intent = new Intent(MainActivity.this, ImageDisplayActivity.class);
+            startActivity(intent);
+        });
+
+        Button secondButton = findViewById(R.id.activate_second);
+        secondButton.setOnClickListener( view -> {
+            Log.i(TAG, "second button clicked");
+        });
+
+        Button thirdButton = findViewById(R.id.activate_third);
+        thirdButton.setOnClickListener( view -> {
+            Log.i(TAG, "third button clicked");
+        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        presenter.onResume();
+        Log.i(TAG, "onResume");
+    }
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause");
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            //case R.id.action_settings:
-            //    return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG, "onStop");
     }
 
     @Override
     protected void onDestroy() {
-        presenter.onDestroy();
         super.onDestroy();
+        Log.i(TAG, "onDestroy");
     }
 
-    @Override
-    public void showProgress() {
-        progressBar.setVisibility(View.VISIBLE);
-        recyclerView.setVisibility(View.INVISIBLE);
-    }
 
-    @Override
-    public void hideProgress() {
-        progressBar.setVisibility(View.INVISIBLE);
-        recyclerView.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void setItems(List<String> items) {
-        recyclerView.setAdapter(new MainAdapter(items, presenter::onItemClicked));
-    }
-
-    @Override
-    public void showMessage(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-    }
 }

@@ -10,16 +10,20 @@
         <activity
             android:name="com.example.oneTouch.login.LoginActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.example.oneTouch.main.MainActivity"
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.example.oneTouch.main.MainActivity"
-            android:label="@string/title_activity_main" >
-        </activity>
+        <!-- 在 application 标签内添加 -->
+        <activity android:name="com.example.oneTouch.main.ImageDisplayActivity"
+            />
+
     </application>
 
 </manifest>
