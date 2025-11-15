@@ -21,17 +21,17 @@ package com.example.oneTouch.main;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
-import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.oneTouch.app.R;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity{
             startActivity(intent);
         });
 
-        preloadWebView();
-
         /*Button testDeepLinkButton = findViewById(R.id.activate_third); // 假设有这个按钮
         if (testDeepLinkButton != null) {
             testDeepLinkButton.setOnClickListener(view -> {
@@ -73,12 +71,6 @@ public class MainActivity extends AppCompatActivity{
             });
         }*/
 
-    }
-    private void preloadWebView() {
-        WebView webView = new WebView(this);
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
-        webView.loadUrl("https://www.honor.com/cn/tech/connect/");
     }
 
     @Override
